@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/userDashboard.css">
+    <link rel="stylesheet" href="./css/search.css">
+
+    
+
+    <title>Document</title>
+</head>
+<body>
+    <!-- adding navbar -->
+    <header>      
+        <%- include('./partials/usernavbar.ejs')%>
+     </header>
+
+<!-- user info container HTML -->
+<section class="userInfoSection">
+ 
+        <div class="upperportion">
+            <div class="left">
+                <div class="content">
+                    <img src="./images/user.png" alt="">
+                    <h2><%=userData.firstName%> <%=userData.lastName%> </h2>
+                    <h2><%=userData.mobileNum%></h2>
+                </div>
+            </div>
+            <div class="right">
+                <% if(typeof sError != 'undefined') {%>
+                    <p><%=sError%></p>
+                <% } %>
+                <form action="/search" method="POST">
+            <input type="search" name="itemName" placeholder="Item Name" value="<%= typeof itemName != 'undefined' ? itemName : '' %>">
+            <input type="search" name="Location" placeholder="Location(city)" value="<%= typeof itemLocation != 'undefined' ? itemLocation: '' %>">
+            <input type="submit" value="search">
+            </form>
+            </div>
+        </div>
+        <hr>
+</section>
+
+
+<!-- item not found HTML -->
+    <% if(typeof itemNotFoundError != 'undefined') {%>   
+    <section class="NotFoundError">
+        <div class="">
+            <p><%=itemNotFoundError%></p>
+        </div>
+
+        <div class="">
+           
+        </div>
+        
+
+    </section>
+<% } %>
+
+
+<!-- found post Container -->
+<%if(typeof postData != 'undefined') { %>
+    <section class="postContainer">
+ 
+        <div class="postInfoContainer">
+
+            <%postData.forEach(element => { %>
+        
+                <div class="post">
+                    
+                    <div class="left">
+                        <h2>Item Name &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;=> </h2>
+                        <h2>Item Location &nbsp;&nbsp;&emsp; &emsp;&emsp;&emsp;&emsp;=></h2>
+                        <h2>Item Date &nbsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;=></h2>
+                        <h2>status &emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;=></h2>
+                        <h2>Contact &nbsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;=></h2>
+                       
+                        
+                   
+                    </div>
+        
+                    <div class="right">
+                       
+                        <h2> <%=element.itemName%></h2>
+                        <h2> <%=element.itemLocation%></h2>
+                        <h2> <%=element.itemDate%></h2>
+                        <h2><%=element.status%></h2>
+                        <h2><%=element.mobileNum%></h2>
+
+                    </div>
+                    <h2 class="textheading">Item Image</h2>
+                    <div class="itemImage">
+                       
+                        <img src="./uploads/<%=element.itemImage%>" alt="Item image">
+
+                    </div>
+        
+        
+        
+        
+       
+        </div>
+        
+        <%})%>
+        </div>
+    </section>
+    <%}%> 
+
+
+
+
+<!-- <script src="../js/login.js"></script> -->
+
+</body>
+</html>
+

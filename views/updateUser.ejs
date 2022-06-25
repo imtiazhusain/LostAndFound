@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- this ejs file has no Css of it's own code is reused from given CSS files -->
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/userDashboard.css">
+    <link rel="stylesheet" href="./css/signup.css">
+
+    
+
+    <title>Document</title>
+</head>
+<body>
+    <!-- adding navbar -->
+    <header>      
+        <%- include('./partials/usernavbar.ejs')%>
+     </header>
+
+<!-- user info container -->
+<section class="userInfoSection">
+
+        <div class="upperportion">
+            <div class="left">
+                <div class="content">
+                    <img src="../images/user.png" alt="">
+                </div>
+            </div>
+            <div class="right">
+                <!-- user Data -->
+                <h2><%=userData.firstName%> <%=userData.lastName%> </h2>
+                    <h2><%=userData.mobileNum%></h2>
+    
+            </div>
+            
+        </div>
+        <hr>
+</section>
+
+
+<main>
+
+<!-- success message if user's record successfully updated -->
+    <% if(success) {%>
+        <div class="success">
+            <h2>Record  Updated successfully</h2>
+        </div>
+
+   <% } %>
+
+   <!-- user data From container -->
+    <div class="container">
+                    <div class="text">
+                        <br>
+                        <h2>Update Your Data</h2>
+                        <% if(typeof sError != 'undefined') {%>
+                            <p><%=sError%></p>
+                         <% } %>
+                    </div>
+
+                    <div class="lostItemForm loginForm" >
+                        <form action="/update" method="post">
+                            <input type="text" placeholder="First Name" name="FirstName" value="<%= typeof userData.firstName != 'undefined' ? userData.firstName : '' %>"><br>
+                            <input type="text" placeholder="Last Name" name="LastName" value="<%= typeof userData.lastName != 'undefined' ? userData.lastName : '' %>"><br>
+                            <input type="email" placeholder="Email" name="Email" value="<%= typeof userData.email != 'undefined' ? userData.email : '' %>"><br>
+                            <input type="text" placeholder="Mobile Number"  name="MobileNum" value="<%= typeof userData.mobileNum != 'undefined' ? userData.mobileNum : '' %>"><br>
+                            <input type="submit">
+
+                       </form>
+
+                    </div>
+                      
+    </div>
+            
+</main>
+
+</body>
+</html>
+

@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --darkcolor: #161616;
+  --bodycolor: #edf5fe;
+  --yellowish: #fabc3d;
+  --catageryFont:#084177;
+    --primary:#fe346e;
+}
+
+body {
+  background: linear-gradient(to left, #00ffff, #00bfff);
+  font-family: poppins,-apple-system, BlinkMacSystemFont, 'Segoe UI';
+}
+
+/* signup container CSS */
+.container {
+  height: 40rem;
+  width: 70vw;
+  background-color: white;
+  border-radius: 0.8rem 4.8rem 0.8rem 4.8rem;
+  box-shadow: 0 4.8rem 9.6rem grey;
+  margin: 5rem auto 8rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container  .loginForm form{
+  margin-top: 1rem;
+  display: flex;
+  justify-content:space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.container .text p{
+  font-size: 1.5rem;
+  color: red;
+  font-weight: bold;
+}
+
+.container  .text {
+
+  font-size: 3.2rem;
+  color: #dc143c;
+ 
+}
+
+.container  .loginForm input {
+  width: 25.6rem;
+  height: 4.32rem;
+  margin-top: 1.6rem;
+  padding-left: 1.6rem;
+  border-radius: 2rem;
+  border: none;
+  background-color: var(--bodycolor);
+  font-size: 1.6rem;
+}
+
+
+.container  .loginForm input:focus {
+  outline: none;
+  border: none;
+  border-radius: 0px;
+  border-bottom: .2rem solid black;
+}
+.container  .loginForm input[type="submit"] {
+  background-color: crimson;
+  border: none;
+  background-color: var(--catageryFont);
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 60%;
+}
+
+.container  .loginLink{
+    font-size: 1.4rem;
+    margin-top: 1.2rem;
+   
+  }
+
+
+
+/* success notificaiton CSS */
+  .success {
+    height: 4rem;
+    width: 65rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 4.8rem 9.6rem grey;
+    margin: 4rem auto 5rem auto;
+    margin-right: auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: green;
+    font-size: 2.3rem;
+   
+  }
+  
+
+
+
+/* lost item css */
+
+  
+  /* lost item css */
+  
+.container  .lostItemForm form input{
+  margin-bottom: 2rem;
+  width: 35%;
+  
+}
+
+/* lost item css */
+.container .lostItemForm  textarea{
+  border: none;
+  background-color: var(--bodycolor);
+  font-size: 1.6rem;
+  text-align: center;
+}
+.container .lostItemForm  input[type="file"]{
+/* border-radius: 1rem; */
+  padding: 1rem;
+  background-color: var(--bodycolor);
+  
+
+}
+.container .lostItemForm  select{
+  padding: 1rem;
+  background-color: var(--bodycolor);
+  width: 10rem;
+  height: 4rem;
+  padding: 1rem;
+  margin-top: 2rem;
+
+}
+
+.container  .lostItemForm input[type="submit"] {
+ 
+  border: none;
+
+  background-color: var(--darkcolor);
+  background-color: #21405c;
+
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 20%;
+}

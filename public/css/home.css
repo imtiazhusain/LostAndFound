@@ -1,0 +1,160 @@
+/* adding google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* defining variables */
+:root{
+    --bodyColor: rgb(242, 245, 248);
+    --navHading: #212529;
+    --catageryFont:#084177;
+    --primary:#fe346e;
+
+}
+
+/*  to use rem unit easily it makes resposiveness easy */
+html {
+    font-size: 62.5%;
+}
+
+  body {
+    
+    background: linear-gradient(to left,#00FFFF,#00BFFF);
+
+    /* setting font fmaily that was imported from google fonts */
+    font-family:poppins,-apple-system, BlinkMacSystemFont, 'Segoe UI';
+  }
+
+  /* header and nav CSS  */
+.heading{
+    color: white;
+    text-align: center;
+   background-color: var(--navHading);
+    height: 12rem;
+    width: 100%;
+}
+
+ .heading h1{
+    font-size: 3rem;
+    padding-top: 1rem;
+}
+
+.heading h2{
+    color: var(--primary);
+    font-size: 1.7rem;
+}
+
+nav{
+    background-color: var(--navHading);
+    height:6rem;
+  padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+    
+}
+
+nav a{
+    text-decoration-line:none ;
+    color: white;
+    padding: 1rem 3rem;
+    font-weight: 400;
+    font-size: 1.8rem;
+   letter-spacing: 1.5px;
+}
+
+nav a:hover{
+    background-color: var(--primary);
+}
+
+
+
+/* main box styling */
+
+main .main-box{
+    margin: auto;
+    margin-top: 4rem;
+    height: 35rem;
+    width: 67vw;
+    background-color: #161616;
+    border-radius: 0.5rem 4rem 0.5rem 4rem;
+   background-color: white;
+    box-shadow: 0 3rem 6rem grey;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+main .main-box .text{  
+      width: 60%;
+      letter-spacing: .1rem;
+      word-spacing: .2rem;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+      margin-left: .3rem;
+}
+
+
+   
+main .main-box .text h1{
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+
+main .main-box .text h2{
+      font-size: 1.8rem;
+      text-align: left;
+ }
+  
+ main .main-box .text .flexibaleText{
+        text-align: center;
+        padding: .6rem;
+}
+
+main .main-box .text  .flexibaleText h2{
+        font-size: 2.5rem;
+        color: var(--darkcolor);
+ }
+      
+main .main-box .text .typing{
+          font-size: 2.8rem;
+ } 
+    
+main .main-box .image img{
+    width:35rem;
+    border-radius: 0.5rem 4rem 0.5rem 0;
+  }
+  
+main .main-box .image .figure-tag {
+    position: relative;
+}
+main .main-box .image .figure-tag figcaption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: white;
+    text-transform: uppercase;
+    font-size: 2rem;
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden;
+    text-align: center;
+  }
+  
+main .main-box .image:hover .figure-tag figcaption  {
+    opacity: 1;
+    transform: translate(-45%, -50%);
+}
+ 
+main .main-box .image:hover  .figure-tag img{
+    filter: blur(2px) brightness(80%);
+}
+

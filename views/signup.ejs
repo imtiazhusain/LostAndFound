@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/signup.css">
+    
+
+    <title>Document</title>
+</head>
+<body>
+ 
+<!-- adding navbar -->
+<header>      
+    <%- include('./partials/navbar.ejs')%>
+ </header>
+   
+
+  
+    <main>
+
+        <div class="container">
+
+                        <div class="text">
+                            <br>
+                            <h2>SIGNUP</h2>
+                            <% if(typeof sError != 'undefined') {%>
+                                <p><%=sError%></p>
+                             <% } %>
+                        </div>
+
+                        <div class="loginForm" >
+                            <form action="/signup" method="POST">
+                                <input type="text" placeholder="First Name" name="FirstName" value="<%= typeof firstName != 'undefined' ? firstName : '' %>"><br>
+                                <input type="text" placeholder="Last Name" name="LastName" value="<%= typeof lastName != 'undefined' ? lastName : '' %>"><br>
+                                <input type="email" placeholder="Email" name="Email" value="<%= typeof Email != 'undefined' ? Email : '' %>"><br>
+                                <input type="text" placeholder="Mobile Number"  name="MobileNum" value="<%= typeof userMobNum != 'undefined' ? userMobNum : '' %>"><br>
+                                <input type="password" placeholder="Password" name="Password"><br>
+                                <input type="password" placeholder="Confirm Password" name="ConfirmPassword"><br>
+                                <input type="submit">
+                           </form>
+                        </div>
+
+                           <div class="loginLink">
+                            <p> Alraedy have an Account?  <a href="/login">Login Here</a></p>
+                           </div>
+                        
+ 
+        </div>           
+         
+    </main>
+
+</body>
+</html>

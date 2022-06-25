@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- this ejs file has no Css of it's own code is reused from given CSS files -->
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/userDashboard.css">
+    <link rel="stylesheet" href="./css/signup.css">
+
+    
+
+    <title>Document</title>
+</head>
+<body>
+    <!-- adding navbar -->
+    <header>      
+        <%- include('./partials/usernavbar.ejs')%>
+     </header>
+
+<!-- user info cotianer  HTML-->
+<section class="userInfoSection">
+
+   
+    <div class="upperportion">
+
+        <div class="left">
+
+            <div class="content">
+                <img src="../images/user.png" alt="">
+            </div>
+
+        </div>
+
+        <div class="right">
+            <!-- user Data -->
+            <h2><%=userData.firstName%> <%=userData.lastName%> </h2>
+            <h2><%=userData.mobileNum%></h2>
+
+        </div>
+        
+    </div>
+    <hr>
+</section>
+
+
+
+<main>
+<!-- success msg if item inserted  successfully -->
+
+    <% if(typeof success != 'undefined') {%>
+        <div class="success">
+            <p><%=success%></p>
+        </div>
+        
+     <% } %>
+
+     <!-- form continer for adding item details to Database -->
+    <div class="container">
+
+                    <div class="text">
+                        <br>
+                        <h2>Enter Lost Item Details</h2>
+                        <% if(typeof sError != 'undefined') {%>
+                            <p><%=sError%></p>
+                         <% } %>
+                    </div>
+
+                    <div class="lostItemForm loginForm" >
+                        <form action="/insert" method="POST" enctype="multipart/form-data">
+                            <input type="text" placeholder="Enter the Name of Item" name="itemName" value="<%= typeof firstName != 'undefined' ? firstName : '' %>">
+                            <input type="text" placeholder=" Location of lost/found items (City)" name="location" value="<%= typeof lastName != 'undefined' ? lastName : '' %>">
+                           <input placeholder="Enter Item LOST/FOUND Date" name ="Date" type="text" onfocus="(this.type = 'date')" onblur="(this.type = 'text')"  id="date" required>
+                            <textarea placeholder="Enter Item Description" name="itemDescription"  cols="35" rows="1"></textarea>
+                            <input type="file" name="itemImage">
+                            <select required name="status" >
+                                <option value="" disabled selected>status</option>
+                                <option value="Lost">LOST</option>
+                                <option value="Found">FOUND</option>
+
+                            </select>
+                            <input type="submit">
+
+                       </form>
+                    </div>
+                      
+                    
+    </div>
+                
+</main>
+
+</body>
+</html>
+
